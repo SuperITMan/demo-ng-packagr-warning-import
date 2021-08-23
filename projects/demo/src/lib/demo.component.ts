@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'lib-demo',
@@ -12,9 +12,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DemoComponent implements OnInit {
 
-  constructor() { }
+  constructor(public renderer: Renderer2, public elementRef: ElementRef) { }
 
   ngOnInit(): void {
+    this.renderer.addClass(this.elementRef.nativeElement, "demo-class");
   }
 
 }
